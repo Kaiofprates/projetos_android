@@ -17,11 +17,14 @@ public class Main2Activity extends MainActivity {
     private FloatingActionButton botao;
     private EditText texto;
     private SQLiteDatabase banco;
+    private Button limpar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
 
         Bundle info = getIntent().getExtras();
         final String nota = info.getString("nota");
@@ -29,6 +32,13 @@ public class Main2Activity extends MainActivity {
         //Toast.makeText(Main2Activity.this, "essa é a nota = "+nota, Toast.LENGTH_SHORT).show();
 
         // cash
+        limpar = (Button) findViewById(R.id.botao);
+        limpar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                texto.setText("");
+            }
+        });
 
         botao = (FloatingActionButton) findViewById(R.id.floatingActionButton2);
         texto = (EditText) findViewById(R.id.editText);
